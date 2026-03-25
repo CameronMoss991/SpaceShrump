@@ -13,7 +13,7 @@ public class Hero : MonoBehaviour
     public float pitchMult = 30;
 
     [Header("Dynamic")]
-    public float shieldlevel = 1;
+    public float shieldLevel = 1;
 
 
     void Awake()
