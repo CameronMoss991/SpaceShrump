@@ -9,7 +9,7 @@ public class Utils : MonoBehaviour
         Vector3[,] vArr = new Vector3[points.Length, points.Length];
         int r = points.Length - 1;
         for(int c = 0; c < points.Length; c++){
-            vArr[r,c] = vList[c];
+            vArr[r,c] = points[c];
         }
         for(r--; r>= 0; r--)
         {

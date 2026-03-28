@@ -7,10 +7,12 @@ public class Main : MonoBehaviour
 {
     static private Main S;
     [Header("Inscribed")]
+    public bool spawnEnemies = true;
     public GameObject[] prefabEnemies;
     public float enemySpawnPerSecond = 0.5f;
     public float enemyInsetDefault = 1.5f;
     public float gameRestartDelay = 2f;
+    public WeaponDefinition[] weaponDefinitions;
 
     private BoundsCheck bndCheck;
 
@@ -26,6 +28,10 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     public void SpawnEnemy()
     {
+        if (!spawnEnemies){ 
+            Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
+            return; 
+        }
         int ndx = Random.Range(0,prefabEnemies.Length);
         GameObject go = Instantiate<GameObject>(prefabEnemies[ndx]);
 
