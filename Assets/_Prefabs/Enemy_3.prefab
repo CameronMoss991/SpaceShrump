@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 1682199025292086599}
   - component: {fileID: 1212284569818393262}
   - component: {fileID: 4384482383367096160}
+  - component: {fileID: -264424330806045158}
   m_Layer: 9
   m_Name: Enemy_3
   m_TagString: Untagged
@@ -555,6 +556,11 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 100
+  lifeTime: 5
+  midpointYRange: {x: 1.5, y: 3}
+  drawDebugInfo: 1
+  points: []
+  birthTime: 0
 --- !u!114 &4384482383367096160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +579,22 @@ MonoBehaviour:
   screenLocs: 0
   camWidth: 0
   camHeight: 0
+--- !u!54 &-264424330806045158
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023118666425128957}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &2351966529018421563
 GameObject:
   m_ObjectHideFlags: 0
