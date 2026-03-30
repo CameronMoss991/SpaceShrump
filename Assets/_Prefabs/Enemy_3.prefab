@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 4384482383367096160}
   - component: {fileID: -264424330806045158}
   - component: {fileID: -8070794287268885828}
+  - component: {fileID: -6975082432539174512}
   m_Layer: 9
   m_Name: Enemy_3
   m_TagString: Untagged
@@ -557,6 +558,7 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 100
+  powerUpDropChance: 0.75
   lifeTime: 5
   midpointYRange: {x: 1.5, y: 3}
   drawDebugInfo: 1
@@ -575,8 +577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundsType: 2
-  radius: 2.5
-  keepOnScreen: 1
+  radius: 3
+  keepOnScreen: 0
   screenLocs: 0
   camWidth: 0
   camHeight: 0
@@ -609,6 +611,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkCompleteTime: 0
+  ignoreOnCollisionEnter: 0
+--- !u!136 &-6975082432539174512
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023118666425128957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2
+  m_Height: 2.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 13, z: 0}
 --- !u!1 &2351966529018421563
 GameObject:
   m_ObjectHideFlags: 0

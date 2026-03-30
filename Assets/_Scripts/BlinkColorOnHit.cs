@@ -9,6 +9,7 @@ public class BlinkColorOnHit : MonoBehaviour
     [Header("Dynamic")]
     private bool showingColor=false; // Flag to indicate if the blink color is currently being shown
     public float blinkCompleteTime=0f; // Time at which the blink effect should end
+    public bool ignoreOnCollisionEnter = false; // Flag to ignore collision enter events (used for shields)
 
     private Material[] materials; // Array to hold the materials of the object
     private Color[] originalColors; // Array to hold the original colors of the materials
@@ -35,6 +36,10 @@ public class BlinkColorOnHit : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
+        if(ignoreOnCollisionEnter)
+        {
+            return; // If the flag to ignore collision enter is set, do nothing
+        }   
         ProjectileHero p = coll.gameObject.GetComponent<ProjectileHero>(); // Check if the colliding object is a projectile
         if (p != null)
         {
@@ -46,7 +51,7 @@ public class BlinkColorOnHit : MonoBehaviour
         }
         
     }
-    void SetColors()
+    public void SetColors()
     {
         foreach(Material m in materials)
         {
