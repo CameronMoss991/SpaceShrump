@@ -42,12 +42,22 @@ public class ProjectileHero : MonoBehaviour
     public void SetType(eWeaponType eType)
     {
         _type = eType;
+        
+        // Safety check: If Awake hasn't run yet, grab the renderer now
+        if (rend == null) rend = GetComponent<Renderer>();
+        
         WeaponDefinition def = Main.GET_WEAPON_DEFINITION(_type);
         rend.material.color = def.projectileColor;
     }
     public Vector3 vel
     {
-        get{return rigid.velocity;}
-        set{rigid.velocity = value;}
+        get {
+            if (rigid == null) rigid = GetComponent<Rigidbody>();
+            return rigid.velocity; 
+        }
+        set {
+            if (rigid == null) rigid = GetComponent<Rigidbody>();
+            rigid.velocity = value; 
+        }
     }
 }

@@ -44,6 +44,9 @@ public class Hero : MonoBehaviour
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
 
+        float currentSpeed = speed;
+        if (Input.GetKey(KeyCode.LeftShift)) currentSpeed *= 3f; //added this
+
         // Change transform.position based on the axes
         Vector3 pos = transform.position;
         pos.x += hAxis * speed * Time.deltaTime;
@@ -94,6 +97,7 @@ public class Hero : MonoBehaviour
         if(enemy != null)
         {
             _shieldLevel--;
+            if (CameraShake.S != null) CameraShake.S.Shake(); //added camera shake
             Destroy(go);
         } else if(pUp != null)
         {

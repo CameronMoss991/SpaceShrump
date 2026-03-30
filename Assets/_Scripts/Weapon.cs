@@ -39,17 +39,23 @@ public class Weapon : MonoBehaviour
     private GameObject weaponModel;
     private Transform shotPointTrans;
 
+    void Awake() // Add Awake to handle the transform reference
+    {
+        shotPointTrans = transform; 
+    }
     void Start()
     {
         if (PROJECTILE_ANCHOR == null)
         {
             GameObject go = new GameObject("_ProjectileAnchor");
             PROJECTILE_ANCHOR = go.transform;
+            PROJECTILE_ANCHOR.position = Vector3.zero; //added
         }
+        shotPointTrans = transform; //added
         SetType(_type);
         
         Hero hero = GetComponent<Hero>();
-        if(hero != null) hero.fireEvent += Fire;
+        if(Hero.S != null) Hero.S.fireEvent += Fire;
     }
 
     public eWeaponType type
